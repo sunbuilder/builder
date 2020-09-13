@@ -1,0 +1,153 @@
+{
+    "list": [
+        {
+            "img":"img/dingwei.png",
+            "id": "1",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        }, {
+            "img": "img/dingwei.png",
+            "id": "2",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "3",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"2"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "4",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"0"
+            
+        }, {
+            "img": "img/dingwei.png",
+            "id": "5",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "6",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "7",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        } ,{
+            "img": "img/dingwei.png",
+            "id": "8",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "9",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "10",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        }, {
+            "img": "img/dingwei.png",
+            "id": "2",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "3",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "4",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        }, {
+            "img": "img/dingwei.png",
+            "id": "5",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"stauts":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "6",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "7",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        } ,{
+            "img": "img/dingwei.png",
+            "id": "8",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "9",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        },
+        {
+            "img": "img/dingwei.png",
+            "id": "10",
+			"state":"在售",
+			"news":"哈哈哈哈哈哈",
+			"status":"1"
+            
+        }
+
+
+        
+    ]
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="Bookmark" href="favicon.ico" >
+<link rel="Shortcut Icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="css/pagination.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<title>超低价格</title>
+<style>
+	.image img{
+		height:60px;
+		/* width:80px; */
+	}
+</style>
+</head>
+<body>
+<!--_header -->
+    <div id="header"></div>
+<!--_menu -->
+	<div id="menu"></div>
+	
+<section class="Hui-article-box">
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i><a href="index.html" title="首页">首页</a>
+		<span class="c-gray en">&gt;</span> 楼盘管理 
+		<span class="c-gray en">&gt;</span> 超低价格
+	</nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="text-c">
+				<input type="text" class="input-text" style="width:250px" placeholder="输入楼房名称" id="" name="">
+				<button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i>搜索</button>
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> 
+				<span class="l">
+					<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
+						<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
+					</a> 
+					<a href="javascript:;" onclick="lowPrice_add('添加用户','add/lowPrice-add.html','','510')" class="btn btn-primary radius">
+						<i class="Hui-iconfont">&#xe600;</i> 添加信息
+					</a>
+				</span> 
+			</div>
+			<div class="mt-20">
+				<table class="table table-border table-bordered table-hover table-bg table-sort">
+					<thead>
+						<tr class="text-c">
+							<th width="25"><input type="checkbox" name="" value=""></th>
+							<th width="50">ID</th>
+							<th width="100">图片</th>
+							<th width="80">楼盘名称</th>
+							<th width="80">地址</th>
+							<th width="80">平均价格</th>
+							<th width="80">总价格</th>
+							<th width="80">楼房标签</th>
+							<th width="40">浏览次数</th>
+							<th width="70">公司信息</th>
+							<th width="70">用户信息</th>
+							<th width="70">详细信息</th>
+							<th width="30">修改</th>
+							<th width="30">删除</th>
+						</tr>
+					</thead>
+					<tbody class="list"></tbody>
+					
+				</table>
+			</div>
+		</article>
+		<div class="setPageDiv">
+			<div class="Pagination" id="pagination"></div>
+		</div>
+	</div>
+</section>
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.page.js"></script> 
+<script type="text/javascript" src="js/jquery.pagination.js"></script>
+<script type="text/javascript">
+	$("#header").load("_header.html");
+	$("#menu").load("menu/_menu-1.html");
+	function lowPrice_del(obj,id){
+		layer.confirm('确认要删除吗？',function(index){
+			//此处请求后台程序，下方是成功后的前台处理……
+			$(obj).parents("tr").remove();
+			layer.msg('已删除!',{icon:1,time:1000});
+		});
+	}
+	// 添加
+	function lowPrice_add(title,url,w,h){
+		layer_show(title,url,w,h);
+	}
+	//用户信息
+	function lowPrice_user(title,url,w,h){
+		layer_show(title,url,w,h);
+	}
+	//公司信息
+	function lowPrice_factory(title,url,w,h){
+		layer_show(title,url,w,h);
+	}
+	//详情
+	function lowPrice_detail(title,url,w,h){
+		layer_show(title,url,w,h);
+	}
+	function lowPrice_update(title,url,w,h){
+		layer_show(title,url,w,h);
+	}
+	//分页
+	$(function() {
+	
+				$('.setPageDiv').change(function() {
+	
+					getMsg(parseInt($(this).val()))
+				})
+	
+				function getMsg(num) {
+					$.ajax({
+						url: 'data/page.json',
+						type: 'GET',
+						dataType: 'json',
+						success: function(data) {
+							//1.计算分页数量
+							var showNum = num;
+							var dataL = data.list.length;
+							var pageNum = Math.ceil(dataL / showNum);
+							$('.Pagination').pagination(pageNum, {
+								num_edge_entries: 1, //边缘页数
+								num_display_entries: 4, //主体页数
+								items_per_page: 1, //每页显示1项
+								prev_text: "上一页",
+								next_text: "下一页",
+								callback: function(index) {
+									var html = ""
+									for(var i = showNum * index; i < showNum * index + showNum; i++) {
+										
+										if(i < dataL) {
+	
+											var state = data.list[i].state;
+											var news = data.list[i].news;
+											var id = data.list[i].id; //交易类型
+											html +="<tr class='text-c'>"
+												html +="<td><input type='checkbox' value='"+id+"'></td>"
+												html +="<td>"+id+"</td>"	
+												html +="<td class='image'><img src='./image/logn.png'></td>"
+												html +="<td>"+state+"</td>"
+												html +="<td>"+news+"</td>"
+												html +="<td>"+state+"</td>"
+												html +="<td>"+news+"</td>"
+												html +="<td>"+state+"</td>"
+												html +="<td>"+news+"</td>"
+												html +="<td><a title='公司信息' href='javascript:;' onclick=\"lowPrice_factory('公司信息','detail/lowPrice-factory.html','800','500')\" class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe62e;</i></a></td>"
+												html +="<td><a title='用户信息' href='javascript:;' onclick=\"lowPrice_user('用户信息','detail/lowPrice-user.html','800','500')\" class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe61a;</i></a></td>"
+												html +="<td><a title='详细信息' href='javascript:;' onclick=\"lowPrice_detail('详细信息','detail/lowPrice-detail.html','800','500')\" class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe616;</i></a></td>"
+												html +="<td><a title='编辑' href='javascript:;' onclick=\"lowPrice_update('编辑','update/lowPrice-update.html','800','500')\" class=' ml-5 ' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6df;</i></a></td>"
+												html +="<td> <a title='删除' href='javascript:;' onclick=\"lowPrice_del(this,'1')\" class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a></td>"
+											    html +="</tr>"	
+											
+										}
+									}
+	
+									$('.list').html(html)
+								}
+							})
+	
+						}
+					})
+				}
+				getMsg(10)
+	
+			})
+	
+</script>
+</body>
+</html>
+
